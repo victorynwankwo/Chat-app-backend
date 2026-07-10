@@ -6,6 +6,7 @@
   "main": "dist/server.js",
   "scripts": {
     "dev": "tsx watch server.ts",
+    "check-types": "tsc --watch --noEmit",
     "build": "tsc",
     "start": "node dist/server.js"
   },

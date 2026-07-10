@@ -1,6 +1,6 @@
 // src/models/message.model.ts
 import { Schema, model } from "mongoose";
-import { IMessage } from "../types/message.type";
+import { IMessage } from "../types/message.type.js";
 
 const messageSchema = new Schema<IMessage>(
   {
@@ -15,7 +15,7 @@ const messageSchema = new Schema<IMessage>(
       required: [true, "A message must belong to a room"],
     },
     text: {
-      type: String, // 👈 Changed from content to text
+      type: String, //
       required: [true, "Message text cannot be empty"],
       trim: true, // Removes accidental extra white spaces
     },
