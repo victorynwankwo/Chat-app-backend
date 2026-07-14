@@ -25,6 +25,15 @@ export const registerNewUser = async (req: Request, res: Response) => {
       password: hashedPassword,
     });
     console.log(newUser);
+
+    return res.status(201).json({
+      success: true,
+      message: "User registered successfully",
+      user: {
+        id: newUser._id,
+        username: newUser.username,
+      },
+    });
   } catch (error) {
     console.error("Error registering user:", error);
     return res.status(500).json({ message: "Internal server error" });

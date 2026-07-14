@@ -7,7 +7,7 @@ const roomSchema = new Schema<IRoom>(
     participants: [
       {
         type: Schema.Types.ObjectId,
-        ref: "User", // References your existing User model
+        ref: "User", 
         required: true,
       },
     ],
