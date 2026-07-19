@@ -1,33 +1,38 @@
 # Chat App Backend
 
-A real-time chat backend built with Express, TypeScript, MongoDB, and Socket.IO. It supports user authentication, room creation, message posting, and Swagger API documentation.
+A real-time chat backend built with Express, TypeScript, MongoDB, and Socket.IO. It supports user authentication, room management, message sending, and interactive API documentation.
 
-## Key features
+## Features
 
-- JWT authentication for users
-- Room creation with participant membership
-- Message sending and fetching per room
-- WebSocket support via Socket.IO
-- API docs available through Swagger UI
+- JWT-based authentication for users
+- Room creation and participant-based room access
+- Sending and fetching messages inside a room
+- Real-time communication support with Socket.IO
+- Interactive Swagger documentation for the API
 
-## Tech stack
+## Tech Stack
 
-- Node.js with ES modules
+- Node.js
 - TypeScript
 - Express
-- MongoDB / Mongoose
+- MongoDB with Mongoose
 - Socket.IO
-- Swagger (swagger-jsdoc + swagger-ui-express)
+- Swagger UI and Swagger JSDoc
+
+## Documentation
+
+API docs: https://chat-app-backend-zyhh.onrender.com/api-docs/
 
 ## Installation
 
-1. Clone the repository.
+1. Clone the repository
 2. Install dependencies:
-   ```bash
-   npm install
-   ```
 
-## Running the app
+```bash
+npm install
+```
+
+## Running the App
 
 ### Development
 
@@ -35,43 +40,43 @@ A real-time chat backend built with Express, TypeScript, MongoDB, and Socket.IO.
 npm run dev
 ```
 
-This runs `tsx watch server.ts` and restarts on file changes.
+This starts the app in development mode with hot reloading.
 
-### Production build
+### Production Build
 
 ```bash
 npm run build
 npm start
 ```
 
-## Project structure
-
-- `server.ts` - application entry point, HTTP server, Socket.IO config, DB connection
-- `src/app.ts` - Express app setup, JSON parsing, Swagger, and route mounting
-- `src/Config/db.ts` - MongoDB connection logic
-- `src/Config/swagger.ts` - Swagger definition and JSDoc scan paths
-- `src/Controllers/` - request handlers for auth, rooms, and messages
-- `src/Routes/` - Express route definitions
-- `src/Middleware/verifyUser.ts` - JWT validation and user injection
-- `src/Model/` - Mongoose models for `User`, `Room`, and `Message`
-
-## Routes overview
+## Main API Endpoints
 
 ### Authentication
 
-- `POST /auth/register` - register a new user with `username` and `password`
-- `POST /auth/login` - login with `username` and `password`, returns an access token
+- `POST /auth/register` - Register a new user with a username and password
+- `POST /auth/login` - Log in and receive an access token
 
 ### Rooms
 
-- `POST /rooms/createroom` - create a room by passing `participants` array
-- `GET /rooms/myrooms` - get rooms where the authenticated user participates
-- `GET /rooms/{roomId}` - get details for a specific room
+- `POST /rooms/createroom` - Create a room and define its participants
+- `GET /rooms/myrooms` - Get all rooms for the authenticated user
+- `GET /rooms/{roomId}` - Get details for a specific room
 
 ### Messages
 
-- `POST /message/{roomId}/messages` - send a message to a room using `text`
-- `GET /message/{roomId}/messages` - fetch all messages for a room
+- `POST /message/{roomId}/messages` - Send a message to a room
+- `GET /message/{roomId}/messages` - Fetch messages for a room
 
-## Swagger API docs
+## Project Structure
 
+- `server.ts` - Application entry point and server startup
+- `src/app.ts` - Express app setup, middleware, and route mounting
+- `src/Config/` - Configuration for database, Swagger, and app settings
+- `src/Controllers/` - Request handlers for auth, rooms, and messages
+- `src/Routes/` - Express route definitions
+- `src/Middleware/` - Authentication and request validation middleware
+- `src/Model/` - Mongoose models for users, rooms, and messages
+
+## Notes
+
+Use the Swagger UI link above to test the API endpoints directly in your browser.

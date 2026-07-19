@@ -15,10 +15,16 @@ const messageSchema = new Schema<IMessage>(
       required: [true, "A message must belong to a room"],
     },
     text: {
-      type: String, //
-      required: [true, "Message text cannot be empty"],
-      trim: true, // Removes accidental extra white spaces
+      type: String,
+      trim: true,
+      default: "",
     },
+
+    image: {
+      type: String, // Optional field for image URL
+      default: null,
+    },
+
     isRead: {
       type: Boolean,
       default: false, // Messages are unread by default when sent

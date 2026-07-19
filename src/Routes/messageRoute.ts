@@ -4,6 +4,7 @@ import {
 } from "../Controllers/message.controler.js";
 import express from "express";
 import { verifyUser } from "../Middleware/verifyUser.js";
+import {upload} from "../Config/multer.js";
 
 const router = express.Router();
 
@@ -76,7 +77,7 @@ const router = express.Router();
  *       500:
  *         description: Internal server error
  */
-router.post("/:roomId/messages", verifyUser, sendMessage);
+   router.post("/:roomId/messages", verifyUser, upload.single("image"), sendMessage);
 
 /**
  * @swagger

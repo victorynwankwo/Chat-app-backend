@@ -67,7 +67,7 @@ export const LoginUser = async (req: Request, res: Response) => {
     const accessToken = jwt.sign(
       { id: user._id, username: user.username },
       process.env.ACCESS_TOKEN_SECRET || "your_fallback_development_secret_key",
-      { expiresIn: "7d" }, // Token expires in 7 days
+      { expiresIn: "10d" }, // Token expires in 7 days
     );
 
     // 5. Send clean response back to the phone/client app
